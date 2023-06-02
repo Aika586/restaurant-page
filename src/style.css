@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+:root {
+  --transparent-bckd: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: url("./foto.png");
+  background-size: contain;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgb(43, 43, 80);
+
+  height: 100vh;
+  /* padding-top: 50px;
+  padding-bottom: 50px; */
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+#logo {
+  font-family: "Lobster", bold;
+  font-size: 4rem;
+  padding: 13px;
+}
+.header {
+  color: aliceblue;
+  width: 100%;
+
+  height: auto;
+  background-color: var(--transparent-bckd);
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#navbar {
+  display: flex;
+  gap: 50px;
+  font-size: 1.5rem;
+  padding-bottom: 25px;
+}
+
+#navbar {
+  list-style: none;
+}
+
+.main-text {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-text {
+  width: 500px;
+  height: auto;
+  background-color: var(--transparent-bckd);
+  background-size: contain;
+  padding: 20px;
+}
+#text {
+  padding: 10px;
+  font-size: 28px;
+  font-style: bold;
+}
+
+li::marker {
+  color: yellow;
+  font-size: 30px;
+}
+
+#lasttext {
+  font-size: 24px;
+  margin: 10px;
+}
+
+#footer {
+  width: 100%;
+  min-height: 60px;
+  background-color: var(--transparent-bckd);
+  color: white;
+}
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
