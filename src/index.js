@@ -1,4 +1,6 @@
 import "./style.css";
+import menu from "./menu.js";
+import contact from "./contact.js";
 
 const divheader = document.createElement("div");
 divheader.classList.add("header");
@@ -48,15 +50,59 @@ const maintext = () => {
   mainDiv.append(text1, secondtext, lasttext);
   return mainDiv;
 };
-document.body.appendChild(maintext());
 
-const footer = () => {
+const mainText = maintext();
+const footerElement = footer();
+document.body.append(mainText, footerElement);
+const liElements = divheader.querySelectorAll(".links");
+let menuContainer = null;
+let contactContainer = null;
+
+function clickhandler(e) {
+  if (e.target.textContent === "Меню") {
+    if (menuContainer) {
+      return;
+    }
+    menuContainer = document.createElement("div");
+    menuContainer.appendChild(menu());
+    document.body.insertBefore(menuContainer, footerElement);
+    mainText.style.display = "none";
+    if (contactContainer) {
+      document.body.removeChild(contactContainer);
+      contactContainer = null;
+    }
+  } else if (e.target.textContent === "Главная") {
+    if (menuContainer) {
+      document.body.removeChild(menuContainer);
+      menuContainer = null;
+    }
+    if (contactContainer) {
+      document.body.removeChild(contactContainer);
+      contactContainer = null;
+    }
+    mainText.style.display = "";
+  } else if (e.target.textContent === "Контакты") {
+    if (contactContainer) {
+      return;
+    }
+    contactContainer = document.body.appendChild(contact());
+    document.body.insertBefore(contactContainer, footerElement);
+    mainText.style.display = "none";
+    if (menuContainer) {
+      document.body.removeChild(menuContainer);
+      menuContainer = null;
+    }
+  }
+}
+liElements.forEach((item) => {
+  item.addEventListener("click", clickhandler);
+});
+
+function footer() {
   const footertext = document.createElement("div");
-  footertext.id = "footer";
+  footertext.classList.add("footer");
   const copyrightsymbol = document.createTextNode(" Copyright \u00A9");
   footertext.appendChild(copyrightsymbol);
   footertext.textContent += "2023 Aikokul Chargynova";
   return footertext;
-};
-
-document.body.appendChild(footer());
+}
